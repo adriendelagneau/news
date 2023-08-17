@@ -7,7 +7,7 @@ export const GET = async (request) => {
     try {
         await connect()
         const articles = await Article.find()
-console.log("tyty")
+
         return new NextResponse(JSON.stringify(articles), { status: 200})
     } catch(err) {
         return new NextResponse("DB error"+err, { status: 500})
