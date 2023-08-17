@@ -1,5 +1,6 @@
 import React from 'react'
 
+/*
 async function getData() {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/articles/search?category=politic&subcategory=national`, {
     cache: "no-store",
@@ -12,12 +13,12 @@ async function getData() {
 
   return res.json();
 }
-
+*/
 
 const National = async () => {
 
-  const data = await getData();
-  console.log(data)
+  //const data = await getData();
+  //console.log(data)
 
   return (
     <div>National</div>
