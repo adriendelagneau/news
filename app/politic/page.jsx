@@ -16,8 +16,8 @@ async function getData() {
 */
 
 const Politic = async () => {
-  const data = await getData();
- console.log(data)
+ // const data = await getData();
+ //console.log(data)
   return (
     <>
     <div>cat page</div>
