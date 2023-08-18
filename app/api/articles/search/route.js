@@ -12,7 +12,6 @@ class APIfeatures {
     filtering() {
         if (this.queryString.title) {
             this.articles = this.articles.filter(article => article.title.toLowerCase().includes(this.queryString.title.toLowerCase()));
-            console.log("Filtered by title:", this.queryString.title);
         }
         
         if (this.queryString.category) {   
@@ -38,8 +37,8 @@ class APIfeatures {
     }
 }
 
+await connect()
 export async function GET(request) {
-   await connect()
     const articles = await Article.find(); // Create the initial Mongoose query
 
     const { searchParams } = new URL(request.url);
