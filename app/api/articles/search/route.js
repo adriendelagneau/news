@@ -37,8 +37,8 @@ class APIfeatures {
     }
 }
 
-await connect()
 export async function GET(request) {
+    await connect()
     const articles = await Article.find(); // Create the initial Mongoose query
 
     const { searchParams } = new URL(request.url);
