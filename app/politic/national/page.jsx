@@ -18,7 +18,7 @@ async function getData() {
 const National = async () => {
 
   const data = await getData();
-  console.log(data);
+  
 
   return (
     <>

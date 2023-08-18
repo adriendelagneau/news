@@ -5,7 +5,7 @@ async function getData() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles/search?category=politic&subcategory=international`, {
       cache: "no-store",
     });
-  console.log(res);
+
     if (!res.ok) {
   
       throw new Error("Failed to fetch data");
@@ -17,7 +17,7 @@ async function getData() {
   
 const International = async () => {
   const data = await getData();
-  console.log(data)
+
   
   return (
     <>

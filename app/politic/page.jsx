@@ -8,7 +8,7 @@ async function getData() {
     });
   
     if (!res.ok) {
-  console.log(res)
+
       throw new Error("Failed to fetch data");
     }
   
@@ -22,7 +22,7 @@ async function getData() {
 
 const Politic = async () => {
  const data = await getData();
-console.log(data)
+
   return (
     <>
     <div>cat page</div>
