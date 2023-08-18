@@ -2,7 +2,7 @@ import React from 'react'
 
 
 async function getData() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles/search?category=politic&subcategory=international`, {
+    const res = await fetch(`https://news-nine-delta.vercel.app/api/articles/search?category=politic&subcategory=international`, {
       cache: "no-store",
     });
 
