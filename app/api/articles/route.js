@@ -18,7 +18,7 @@ export const POST = async (request) => {
     const body = await request.json();
   
     const newArticle = new Article(body);
-  
+    
     await connect();
     try {
   
