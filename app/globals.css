@@ -13,6 +13,10 @@
   --dark-focused-color: #66b3ff;
 }
 
+img{
+    z-index: 9;
+}
+
 /* prevent bg autocomplete input*/
 input:-webkit-autofill { 
   -webkit-background-clip: text;

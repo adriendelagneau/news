@@ -86,9 +86,9 @@ const Sidebar = () => {
   return (
     <>
       {/* Overlay to capture clicks and close the sidebar */}
-      <div className={`w-full  h-[calc(100vh-65px)]  opacity-30 fixed top-[65px] left-500   ${isOpen ? 'z-10 bg-gray-900' : '-z-10'}`} onClick={() => closeMenu()}></div>
+      <div className={`w-full  h-[calc(100vh-65px)]  opacity-30 fixed top-[65px] left-500   ${isOpen ? 'z-20 bg-gray-900' : '-z-10'}`} onClick={() => closeMenu()}></div>
       {/* Sidebar container */}
-      <div className={`w-[220px] h-[calc(100vh-65px)] z-20 bg-white fixed top-[65px] transition-all duration-300 ease-in-out border-r  ${isOpen ? 'left-0' : '-left-[250px]'} `}>
+      <div className={`w-[220px] h-[calc(100vh-65px)] z-30 bg-white fixed top-[65px] transition-all duration-300 ease-in-out border-r  ${isOpen ? 'left-0' : '-left-[250px]'} `}>
       
       <div className='w-full mt-8 mb-5 text-center'>
             <Link href="/subscribe" className="p-2 text-white bg-blue-600 rounded-full hover:bg-blue-500" onClick={() => closeMenu()}>Subscribe</Link>
