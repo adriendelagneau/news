@@ -2,7 +2,7 @@ import React from 'react'
 
 
 async function getData() {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/articles/search?category=politic&subcategory=international`, {
+    const res = await fetch(`${process.env.BASE_URL}/api/articles/search?category=politic&subcategory=international`, {
       cache: "no-store",
     });
   console.log(res);
