@@ -3,7 +3,7 @@ import React from 'react'
 
 async function getData() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/articles/search?category=politic`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles/search?category=politic`, {
       cache: "no-store",
     });
   
@@ -29,6 +29,10 @@ console.log(data)
       <Link href={'/politic/international'}>international</Link>
       <Link href={'/politic/national'}>national</Link>
 
+      {
+      data.map((a, i) => (
+        <div key={i}>{a.title}</div>
+        ))}
       
     </>
   )

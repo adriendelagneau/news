@@ -2,7 +2,7 @@ import React from 'react'
 
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/articles/search?category=politic&subcategory=national`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/articles/search?category=politic&subcategory=national`, {
     cache: "no-store",
   });
 
@@ -18,10 +18,16 @@ async function getData() {
 const National = async () => {
 
   const data = await getData();
-  console.log(data)
+  console.log(data);
 
   return (
+    <>
     <div>National</div>
+    {
+      data.map((a, i) => (
+        <div key={i}>{a.title}</div>
+        ))}
+    </>
   )
 }
 

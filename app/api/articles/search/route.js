@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import Article from '../../../../models/Article';
+import connect from '@/lib/db';
 
 
 class APIfeatures {
@@ -38,6 +39,7 @@ class APIfeatures {
 }
 
 export async function GET(request) {
+   await connect()
     const articles = await Article.find(); // Create the initial Mongoose query
 
     const { searchParams } = new URL(request.url);
