@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import Article from '@/models/Article';
-import connect from '@/lib/db';
 
 
 class APIfeatures {
@@ -12,14 +11,18 @@ class APIfeatures {
     filtering() {
         if (this.queryString.title) {
             this.articles = this.articles.filter(article => article.title.toLowerCase().includes(this.queryString.title.toLowerCase()));
+            console.log("Filtered by title:", this.queryString.title);
         }
         
-        if (this.queryString.category) {   
-            this.articles = this.articles.filter(article => article.category == this.queryString.category) 
+        if (this.queryString.category) {    // [String, String]
+            this.articles = this.articles.filter(article => article.category.name == this.queryString.category
+            ); 
         }
 
-        if (this.queryString.subcategory) {   
-            this.articles = this.articles.filter(article => article.subcategory == this.queryString.subcategory) 
+         
+        if (this.queryString.subcategory) {    // [String, String]
+            this.articles = this.articles.filter(article => article.subcategory.name == this.queryString.subcategory
+            ); 
         }
 
         return this;
@@ -37,9 +40,8 @@ class APIfeatures {
     }
 }
 
-export const GET = async(request) => {
-    await connect()
-    const articles = await Article.find(); // Create the initial Mongoose query
+export async function GET(request) {
+    const articles = await Article.find().populate(["author", "category", "subcategory"])
 
     const { searchParams } = new URL(request.url);
     const queryString = {};

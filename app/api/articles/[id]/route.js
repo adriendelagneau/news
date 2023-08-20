@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import connect from "../../../../lib/db";
-import Article from "../../../../models/Article";
+import connect from "@/utils/db";
+import Article from "@/models/Article";
 
 export const GET = async (request, { params }) => {
     const { id } = params;
@@ -12,7 +12,7 @@ export const GET = async (request, { params }) => {
   
       return new NextResponse(JSON.stringify(article), { status: 200 });
     } catch (err) {
-      return new NextResponse("Database Error", { status: 500 });
+      return new NextResponse("Database Error" +err, { status: 500 });
     }
   };
   
@@ -26,6 +26,6 @@ export const GET = async (request, { params }) => {
   
       return new NextResponse("Article has been deleted", { status: 200 });
     } catch (err) {
-      return new NextResponse("Database Error" , { status: 500 });
+      return new NextResponse("Database Error" +err, { status: 500 });
     }
   };

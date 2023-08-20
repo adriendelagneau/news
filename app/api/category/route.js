@@ -1,16 +1,14 @@
 import { NextResponse } from "next/server"
 import connect from "@/utils/db";
-import Author from "@/models/Author";
+import Category from "@/models/Category";
 
 export const GET = async (request) => {
 
-  
-
     try {
         await connect()
-        const authors = await Author.find()
+        const categories = await Category.find()
 
-        return new NextResponse(JSON.stringify(authors), { status: 200})
+        return new NextResponse(JSON.stringify(categories), { status: 200})
     } catch(err) {
         return new NextResponse("DB error" + err, { status: 500})
     }
@@ -19,14 +17,14 @@ export const GET = async (request) => {
 export const POST = async (request) => {
     const body = await request.json();
   
-    const newAuthor = new Author(body);
+    const newCategory = new Category(body);
   
     try {
       await connect();
   
-      await newAuthor.save();
+      await newCategory.save();
   
-      return new NextResponse("Author has been created", { status: 201 });
+      return new NextResponse("Category has been created", { status: 201 });
     } catch (err) {
       return new NextResponse("Database Error" +err, { status: 500 });
     }
