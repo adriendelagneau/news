@@ -6,7 +6,7 @@ const navLinks = [
   {
     id: 0,
     name: "Politique",
-    url: "/politic"
+    url: "/politics"
   },
   {
     id: 1,
